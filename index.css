@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family:Gilroy;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: #efeded;
+}
+.main{
+    width: 100%;
+    position: absolute;
+}
+.loader{
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(30, 29, 29);
+}
+.topheading,.loader{
+    position: absolute;
+    top: 4%;
+    color: white;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+}
+.topheading h5{
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 300;
+
+}
+.loader h1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 4vw;
+    font-weight: 400;
+    color: white;
+}
+.loader  h1 span:nth-child(2){
+    font-family:'MAZIUS REVIEW 20.09 Regular';
+    font-style: italic;
+    color: rgb(108, 216, 148);
+
+}
+.child span{
+    display: inline-block;
+}
+.reveal .parent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+}
+.reveal .parent .child{
+    display: block;
+    
+}
+.green{
+    display: none;
+    width: 100%;
+    z-index: 1000;
+    height: 0;
+    top: 100%;
+    background-color: rgb(108, 216, 148);
+    bottom: 0;
+    position: absolute;
+}
+.home{
+    height: 150vh;
+    width: 100%;
+}
+.home .nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    
+}
+.nav a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 13px;
+    color: black;
+    position: relative;
+}
+.line{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+.nav a:hover .line{
+    width: 0%;
+    transition: 1s;
+}
+.row{
+    margin-top: 3vw;
+    display: flex;
+    width: 100%;
+    padding: 0 7vw;
+    line-height: 1;
+    align-items: center;
+
+
+}
+.row h1{
+    font-size: 11vw;
+    font-weight: 500;
+    letter-spacing: .3vw;
+    color: rgb(42, 40, 40);
+}
+.down-arrow{
+    width: 5vw;
+    padding: 0 1vw;
+}
+.row:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 1vw;
+}
+
+.c-visual{
+    width: 300px;
+    padding: 1.4vw;
+}
+.row svg{
+    height: 7vw;
+    margin: 0 2.2vw;
+    display: flex;
+    align-items: center;
+}
+path,polyline{
+    stroke:rgb(108, 216, 148);
+}
