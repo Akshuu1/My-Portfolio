@@ -14,6 +14,7 @@ document.querySelectorAll(".reveal")
     elem. appendChild(parent)
 })
 }
+
 function valueSetters(){
     gsap.set(".nav a",{y:"-100%",opacity:0})
     gsap.set(".home span .child",{y:"100%"})
