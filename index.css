@@ -293,7 +293,8 @@ path,polyline{
     font-size: 7vw;
     font-weight: 500;
     letter-spacing: .3vw;
-}.eduHead{
+}
+.eduHead{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -306,7 +307,12 @@ path,polyline{
 .educationLeft img{
     width: 90%;
     border-radius: 2vw;
+    filter:grayscale();
+    transition: .5s;
 
+}
+.educationLeft img:hover{
+    filter: grayscale(0);
 }
 .edu{
     display: flex;
@@ -328,6 +334,7 @@ path,polyline{
 
 }
 .scl{
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     padding: 0 2vw;
@@ -335,15 +342,73 @@ path,polyline{
 }
 .scl span{
     color:rgb(135, 127, 127);
+    font-size: 1vw;
 }
 .scl p{
     font-size: 1.9vw;
     font-weight: 500;
-    padding: 0 2.5vw;
+    padding: 0 2vw;
+    margin-left: 4vw;
 }
-.line{
-    width: 80%;
+.skills{
+    width: 100%;
+    position: relative;
+    padding: 5vw 0;
+}
+
+.skills h1{
+    font-size: 10vw;
+    font-weight: 500;
+    letter-spacing: .3vw;
+}
+.skill{
+    width: 100%;
+    display: flex;
+}
+.skillslLeft{
+    width: 65%;
+    padding: 3vw 0;
+}
+.skillsRight{
+    width: 25%;
+    padding: 7vw 10vw;
+}
+.skillsRight img{
+    width: 100%;
+    border-radius: 2vw;
+}
+.lang {
+    width: 100%;
+    position:relative;
+}
+.skillslLeft ul{
+    padding: 7vw 10vw;
+}
+.skillslLeft ul li{
+    text-align:center ;
+    line-height: 15vw;
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 3vw;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+}
+.line1{
+    width: 100%;
     height: 1px;
-    background-color: #dad9d9;
-    margin: 0 10vw;
+    background-color: rgb(180, 175, 175);
+    margin-left: -.5vw;
+    margin-top: -7.6vw;
+    opacity: 50%;
 }
+.skills::before{
+    content: "";
+    top: -3vw;
+    transform: rotate(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url("https://abhishekjha.me/rip.f6d7c4dd.svg");
+    background-size: cover;
+}    

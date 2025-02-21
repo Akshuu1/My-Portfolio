@@ -52,7 +52,7 @@ function loaderAnimation(){
         top:0,
         height:"100%",
         duration: 1,
-        delay:-.7,
+        delay:-.8,
         ease: Circ.easeInOut
     })
     .to(".green" ,{
@@ -100,7 +100,15 @@ function animateSvg() {
     });
 }
 
+function locoInitialize(){
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('.everything'),
+        smooth: true
+    });
 
+}
+locoInitialize();
 revealtoSpan();
 valueSetters();
 loaderAnimation();
+ 
