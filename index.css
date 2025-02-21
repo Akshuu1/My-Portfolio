@@ -8,6 +8,7 @@ html,body{
     width: 100%;
     background-color: #efeded;
     overflow-x: hidden;
+    color: rgb(42, 40, 40);
 }
 .main{
     width: 100%;
@@ -85,8 +86,7 @@ html,body{
     justify-content: space-around;
     width: 100%;
     height: 80px;
-    align-items: center;
-    
+    align-items: center;   
 }
 .nav a{
     text-decoration: none;
@@ -154,9 +154,9 @@ path,polyline{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20vw;
+    margin-top: 15vw;
     width: 100%;
-    padding: 0 7vw;
+    padding: 5vw 7vw;
 }
 .imglef{
     width: 30%;
@@ -169,9 +169,10 @@ path,polyline{
     line-height: 1.4;
     color: #333;
 }
-.imglef h1 span{
+.maz{
     font-family:'MAZIUS REVIEW 20.09 Regular';
     font-style: italic;
+    font-weight: 400;
     color: rgb(108, 216, 148);
 }
 .imgrig{
@@ -203,7 +204,6 @@ path,polyline{
 .imgcntr:nth-child(2){
     background-image: url(Images/img3.jpeg);
     background-size: cover;
-
     transform: translate(-15%,-2%) rotate(-15deg);}
     
 .imgcntr:nth-child(3){
@@ -212,11 +212,138 @@ path,polyline{
     transform: translate(7%,11%) rotate(-7deg);
 }
 .work{
+    margin-top: 8vw;
+    position: relative;
     width: 100%;
-    min-height: 70vh;
     background-color: #F2F2F2;
+    padding-top:100px ;
 }
 .work::before{
+    content: "";
+    top: -1.5vw;
+    transform: rotate(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url("https://abhishekjha.me/rip.f6d7c4dd.svg");
+    background-size: cover;
+}    
+.workrow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vw;
+}
+.workrow h1{
+    font-size: 8vw;
+    font-weight: 500;
+    letter-spacing: .3vw;
     
-}background-image: url("https://abhishekjha.me/rip.f6d7c4dd.svg");
+}
+.o-ui-arrow{
+    width: 5vw;
+    transform: rotate(90deg);
+}
+.o-ui-arrow path{
+    stroke: rgb(135, 127, 127);
+}
+.images{
+    margin-top: 6vw;
+    width: 100%;
+    position: relative;
+    /* padding:0 4vw ; */
+    display: flex;
+    align-items:end;
+    justify-content: space-around;
+}
+.cnt{
+    overflow: hidden; 
+    border-radius: 30px;
+}
+
+.cnt1{
+    width: 45%;
+}
+.cnt img{
+    border-radius: 30px;
+    width: 100%;
+}
+
+.cnt2{
+    width: 20%;
+}
+.education{
+    margin-top: 8vw;
+    position: relative;
+    width: 100%;
+    background-color: #F2F2F2;
+    padding-top:100px ;
+}
+.education::before{
+    content: "";
+    top: -1.5vw;
+    transform: rotate(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url("https://abhishekjha.me/rip.f6d7c4dd.svg");
+    background-size: cover;
+}
+.education h1{
+    font-size: 7vw;
+    font-weight: 500;
+    letter-spacing: .3vw;
+}.eduHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vw;
+}
+.educationLeft{
+    padding: 10vw 5vw;
+    width: 30%;
+}
+.educationLeft img{
+    width: 90%;
+    border-radius: 2vw;
+
+}
+.edu{
+    display: flex;
+    width: 100%;
+}
+.educationRight{
+    width: 60%;
+    padding: 10vw 5vw;
+}
+.educationRight ul li{
+    list-style: none;
+    border-bottom: 1px solid black;
+    padding: 1vw 0;
+    display: flex;
+}
+.educationRight ul{
+    padding: 0;
+    margin: 0;
+
+}
+.scl{
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+    height: 7vw;
+}
+.scl span{
+    color:rgb(135, 127, 127);
+}
+.scl p{
+    font-size: 1.9vw;
+    font-weight: 500;
+    padding: 0 2.5vw;
+}
+.line{
+    width: 80%;
+    height: 1px;
+    background-color: #dad9d9;
+    margin: 0 10vw;
 }
