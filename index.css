@@ -87,10 +87,6 @@ html,body{
     width: 100%;
     height: 80px;
     align-items: center;   
-    position:static;
-    top: 0;
-    left: 0;
-    z-index: 100;
 }
 .nav a{
     text-decoration: none;
@@ -337,6 +333,7 @@ path,polyline{
     margin: 0;
 
 }
+
 .scl{
     text-transform: uppercase;
     display: flex;
@@ -397,6 +394,9 @@ path,polyline{
     font-weight: 500;
     display: flex;
     flex-direction: column;
+}
+.skills{
+    padding-bottom: 0;
 }
 .line1{
     width: 100%;
@@ -536,9 +536,10 @@ footer{
   .footer{
     margin-top: 5vw;
     width: 100%;
-    height: 600px;
+    height: auto;
     padding: 10vw 10vw;
     background-color: #253b39;
+    padding-bottom: 2vw;
   }
 .conn{
     display: flex;
@@ -581,19 +582,18 @@ footer{
 .msg::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
+    top: 0%;
+    left: 0%;
+    width: 0;
     height: 100%;
-    background-color: white;
-    border-radius: inherit;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform .4s ease-in-out;
+    background-color: rgb(108, 216, 148);
+    /* border-radius: inherit; */
+    transition: width .4s ease-in-out;
    
 }
 
 .msg:hover::before {
-    transform: translate(-50%, -50%) scale(1); /* expands to cover the entire box */
+    width: 100%;
 }
 
 .msg h3 {
@@ -605,11 +605,6 @@ footer{
 .con {
     text-decoration: none;
 }
-
-.msg:hover {
-    color: black;
-}
-
 
 .social{
     display: flex;
@@ -663,6 +658,45 @@ footer{
 
 .socialBoxes p:nth-child(2){
     font-size: .7vw;
+}
+
+.links{
+    width: 100%;
+    margin: 2vw 0;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -9vw;
+
+}
+.links a{
+    width: auto;
+    text-decoration: none;
+    color: white;
+    padding: 1vw;
+    font-weight: 300;
+    overflow: hidden;
+    position: relative;
+}
+.links a::before{
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(108, 216, 148);
+    transition:width 0.2s ease-in-out;
+    z-index: -1;
+    border-radius: 5vw;
+}
+
+.links a:hover::before{
+    width: 100%;
+}
+.links a{
+    z-index: 100;
 }
 
 
