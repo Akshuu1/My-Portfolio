@@ -148,9 +148,16 @@ function cardHoverEffect() {
     });
   }
   
+function navRemove(){
+    // document.body.style.paddingTop = nav.offsetHeight + "px";
+    const nav = document.querySelector(".nav")
+    nav.style.position = "sticky";
+}  
+  setTimeout(navRemove,6000)
   locoInitialize();
   revealtoSpan();
   valueSetters();
   loaderAnimation();
   cardHoverEffect();
+
   

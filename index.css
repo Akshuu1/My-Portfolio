@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    display: none;
+    /* display: none; */
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -68,7 +68,7 @@ html,body{
     
 }
 .green{
-    display: none;
+    /* display: none; */
     width: 100%;
     z-index: 1000;
     height: 0;
@@ -87,6 +87,10 @@ html,body{
     width: 100%;
     height: 80px;
     align-items: center;   
+    position:static;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 .nav a{
     text-decoration: none;
@@ -524,4 +528,225 @@ body:has(.skillslLeft ul li:nth-child(1):hover) {
   body:has(.skillslLeft ul li:nth-child(5):hover) {
     background-color: #fdd26e;
   }
-  
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  .footer{
+    margin-top: 5vw;
+    width: 100%;
+    height: 600px;
+    padding: 10vw 10vw;
+    background-color: #253b39;
+  }
+.conn{
+    display: flex;
+    align-items:last baseline;
+    width: 100%;
+    gap: 2vw;
+    text-align: center;
+}
+.conn h1{
+    text-transform: uppercase;
+    margin-left: 7vw;
+    font-weight: 500;
+    width: 50%;
+    color: white;
+    font-size: 5.5vw;
+    line-height: 1;
+}
+.conn svg{
+    transform: rotate(0deg);
+}
+.conn svg path{
+    stroke: white;
+}
+.msg {
+    position: relative;
+    overflow: hidden;
+    padding: 1vw 5vw;
+    margin-top: 6vw;
+    border-radius: 5vw;
+    text-align: center;
+    border: 2px solid white;
+    height: 5vw;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.msg::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: inherit;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .4s ease-in-out;
+   
+}
+
+.msg:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* expands to cover the entire box */
+}
+
+.msg h3 {
+    font-size: 3vw;
+    font-weight: 300;
+    z-index: 100;
+}
+
+.con {
+    text-decoration: none;
+}
+
+.msg:hover {
+    color: black;
+}
+
+
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: -20vw;
+    padding: 3vw 0;
+    margin-top: 2vw;
+}
+
+.social a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid white;
+    position: relative;
+    padding: .7vw;
+    padding-top: .6vw;
+    gap: 1vw;
+    overflow: hidden;
+}
+
+.social a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgb(108, 216, 148);
+    transition: height 0.2s ease-in-out;
+}
+
+.social a:hover::before {
+    height: 100%;
+}
+
+.social i{
+    padding-top: .6vw;
+    font-size: 1.4vw;
+    z-index: 100;
+}
+.socialBoxes{
+    z-index: 100;
+}
+
+.socialBoxes p:nth-child(1){
+    font-size: 2vw;
+}
+
+.socialBoxes p:nth-child(2){
+    font-size: .7vw;
+}
+
+
+
+
+
+.happen{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    z-index: 10;
+    filter: blur(0px);
+    position: relative;
+    top: 15%;
+}
+.connectBox{
+    display: flex;
+    flex-direction: column;
+    height: auto; 
+    width: 50vw;
+    box-sizing: border-box;
+    border-radius: 2vw;
+}
+.connectBoxInput{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    align-items: center;
+}
+.connectBox input{
+    color: white;
+    font-size: 1.3vw;
+    width: 60%;
+    border: none;
+    padding: 1vw;
+    background-color: inherit;
+    border-bottom: 2px solid black;
+    line-height:2;
+}
+.connectBox input:focus{
+    outline: none;
+    outline: none;
+}
+
+.connectBox input::-webkit-outer-spin-button,
+.connectBox input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.connectBox input::placeholder{
+    font-size: 1.3vw;
+    padding: 1vw;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+.connectBoxInput button{
+    background: none;
+    border: none;
+    font-size: 1vw;
+    border: 1px solid black;
+    padding: 1vw 2vw;
+    border-radius: 5vw;
+    color: white;
+    font-weight: 300;
+}
+.bbbb{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: relative;
+    z-index: 1000;
+    align-items: center;
+    gap: 2vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.bbbb h3{
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 1vw;
+}
