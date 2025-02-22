@@ -107,8 +107,50 @@ function locoInitialize(){
     });
 
 }
-locoInitialize();
-revealtoSpan();
-valueSetters();
-loaderAnimation();
- 
+
+function cardHoverEffect() {
+    const masteryItems = document.querySelectorAll(".mastery");
+    const cursorContainer = document.querySelector(".cursor > div");
+    const images = document.querySelectorAll(".cursor .elem img");
+  
+    masteryItems.forEach(function(item) {
+      item.addEventListener("mouseenter", function(event) {
+        // Disable transition temporarily so it appears at the current mouse position immediately
+        cursorContainer.style.transition = "none";
+        cursorContainer.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        cursorContainer.style.opacity = 1;
+        
+        // Force a reflow so that the style is applied immediately
+        void cursorContainer.offsetWidth;
+        
+        // Re-enable the transition for subsequent mouse movements
+        cursorContainer.style.transition = "transform 0.3s cubic-bezier(0.19, 1, 0.22, 1)";
+      });
+      
+      item.addEventListener("mousemove", function(event) {
+        const index = this.dataset.index;
+        // Smoothly update the container's position on mousemove
+        cursorContainer.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        // Show the corresponding image
+        if (images[index]) {
+          images[index].style.opacity = 1;
+        }
+      });
+      
+      item.addEventListener("mouseleave", function() {
+        const index = this.dataset.index;
+        // Hide the container immediately (no transform change needed)
+        cursorContainer.style.opacity = 0;
+        if (images[index]) {
+          images[index].style.opacity = 0;
+        }
+      });
+    });
+  }
+  
+  locoInitialize();
+  revealtoSpan();
+  valueSetters();
+  loaderAnimation();
+  cardHoverEffect();
+  
