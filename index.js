@@ -27,43 +27,51 @@ function valueSetters(){
     });
 }
 
-function loaderAnimation(){
+function loaderAnimation() {
     let tl = gsap.timeline();
 
+    // Completely remove navbar and padding
+    gsap.set(".nav", { display: "none", padding: "0", margin: "0" });
+    gsap.set(".everything", { padding: "0px", margin: "0px" ,overflow: "hidden"});
+
+
     tl
-    .from(".loader .child span" ,{
-        x:100,
-        stagger: .4,
+    .from(".loader .child span", {
+        x: 100,
+        stagger: 0.4,
         duration: 1.4,
-        delay: 0,
         ease: Power3.easeInOut
     })
-    .to(".parent .child" ,{
-        y:'-100%',
+    .to(".parent .child", {
+        y: "-100%",
         duration: 1,
         ease: Circ.easeInOut
     })
-    .to(".loader" ,{
-        height:0,
+    .to(".loader", {
+        height: 0,
         duration: 1,
         ease: Circ.easeInOut
     })
-    .to(".green" ,{
-        top:0,
-        height:"100%",
+    .to(".green", {
+        top: 0,
+        height: "100%",
         duration: 1,
-        delay:-.8,
+        delay: -0.8,
         ease: Circ.easeInOut
     })
-    .to(".green" ,{
-        height:"0%",
-        delay:-.5,
-        duration: .7,
+    .to(".green", {
+        height: "0%",
+        delay: -0.5,
+        duration: 0.7,
         ease: Circ.easeInOut,
-        onComplete:function(){
+        onComplete: function () {
+            // Bring back navbar with original padding
+            gsap.set(".nav", { display: "flex", padding: "20px 50px" }); // Adjust to your original padding
+            gsap.from(".nav", { opacity: 0, duration: 1, ease: Power3.easeInOut });
+
             animateHomepage();
         }
-    })
+    });
 }
 
 function animateHomepage(){
