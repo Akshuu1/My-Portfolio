@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    display: none;
+/*     display: none; */
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -68,7 +68,7 @@ html,body{
     
 }
 .green{
-    display: none;
+/*     display: none; */
     width: 100%;
     z-index: 1000;
     height: 0;
