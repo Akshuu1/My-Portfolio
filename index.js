@@ -155,6 +155,12 @@ function cardHoverEffect() {
       });
     });
   }
+  document.getElementById("about").addEventListener("click", function (event) {
+    event.preventDefault(); // Stop the default jum
+  
+    const target = document.getElementById("about");
+    target.scrollIntoView({ behavior: "smooth" }); // Smooth scroll, just like our love 🥰
+  });
   
 locoInitialize();
 revealtoSpan();
