@@ -108,13 +108,6 @@ function animateSvg() {
     });
 }
 
-function locoInitialize(){
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector('.everything'),
-        smooth: true
-    });
-
-}
 
 function cardHoverEffect() {
     const masteryItems = document.querySelectorAll(".mastery");
@@ -162,7 +155,6 @@ function cardHoverEffect() {
     target.scrollIntoView({ behavior: "smooth" }); // Smooth scroll, just like our love 🥰
   });
   
-locoInitialize();
 revealtoSpan();
 valueSetters();
 loaderAnimation();
