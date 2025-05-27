@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    /* display: none; */
+    display: none;
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -270,6 +270,25 @@ path,polyline{
 
 .cnt2{
     width: 20%;
+    perspective: 1000px;
+    height: 20%;
+}
+.card{
+transform-style: preserve-3d;
+position: relative;
+transition: transform 1s;
+}
+.card-front .card-back{
+    position: relative;
+    backface-visibility: hidden;
+}
+.card-front p{
+    position: relative;
+    z-index: 1;
+}
+.card:hover{
+
+    transform: rotateY(180deg);
 }
 .education{
     margin-top: 8vw;
