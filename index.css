@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    display: none;
+    /* display: none; */
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -68,7 +68,7 @@ html,body{
     
 }
 .green{
-    display: none;
+    /* display: none; */
     width: 100%;
     z-index: 1000;
     height: 0;
@@ -232,6 +232,7 @@ path,polyline{
     align-items: center;
     justify-content: space-between;
     padding: 0 10vw;
+
 }
 .workrow h1{
     font-size: 8vw;
@@ -250,11 +251,15 @@ path,polyline{
     margin-top: 6vw;
     width: 100%;
     position: relative;
-    /* padding:0 4vw ; */
+    border-radius:20vw;
+    padding: 2vw 0;
     display: flex;
     align-items:end;
     justify-content: space-around;
+    /* background-color: rgb(160, 205, 253); */
 }
+
+
 .cnt{
     overflow: hidden; 
     border-radius: 30px;
