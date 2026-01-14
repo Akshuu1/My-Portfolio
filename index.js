@@ -108,7 +108,6 @@ function animateSvg() {
     });
 }
 
-
 function cardHoverEffect() {
     const masteryItems = document.querySelectorAll(".mastery");
     const cursorContainer = document.querySelector(".cursor > div");
@@ -148,6 +147,9 @@ function cardHoverEffect() {
       });
     });
   }
+
+
+
   document.getElementById("about").addEventListener("click", function (event) {
     event.preventDefault(); // Stop the default jum
   

@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    /* display: none; */
+    display: none;
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -68,7 +68,7 @@ html,body{
     
 }
 .green{
-    /* display: none; */
+    display: none;
     width: 100%;
     z-index: 1000;
     height: 0;
@@ -138,7 +138,8 @@ html,body{
 
 .c-visual{
     width: 300px;
-    padding: 1.4vw;
+    padding:1.5vw;
+    margin-right:2vw;
 }
 .row svg{
     height: 7vw;
@@ -210,91 +211,147 @@ path,polyline{
     background-size: cover;
     transform: translate(7%,11%) rotate(-7deg);
 }
+
 .work{
     margin-top: 8vw;
-    position: relative;
     width: 100%;
-    background-color: #F2F2F2;
-    padding-top:4vw ;
+    background: #F2F2F2;
+    padding: 4vw 0 8vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
+
 .work::before{
     content: "";
-    top: -5vw;
-    transform: rotate(180deg);
     position: absolute;
+    top: -10vw;
     width: 100%;
     height: 7vw;
     background-image: url("https://abhishekjha.me/rip.f6d7c4dd.svg");
     background-size: cover;
-}    
+    transform: rotate(180deg);
+}
+
 .workrow{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 0 10vw;
-
 }
+
 .workrow h1{
     font-size: 8vw;
     font-weight: 500;
     letter-spacing: .3vw;
-    
 }
+
+.maz{
+    color: rgb(108, 216, 148);
+}
+
 .o-ui-arrow{
     width: 5vw;
     transform: rotate(90deg);
 }
+
 .o-ui-arrow path{
-    stroke: rgb(135, 127, 127);
+    stroke: rgb(135,127,127);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
+
 .images{
     margin-top: 6vw;
-    width: 100%;
-    position: relative;
-    border-radius:20vw;
-    padding: 2vw 0;
+    padding: 0 6vw;
     display: flex;
-    align-items:end;
-    justify-content: space-around;
-    /* background-color: rgb(160, 205, 253); */
+    gap:3vw;
 }
-
 
 .cnt{
-    overflow: hidden; 
-    border-radius: 30px;
-}
-
-.cnt1{
-    width: 45%;
-}
-.cnt img{
-    border-radius: 30px;
     width: 100%;
+    perspective: 1200px;
 }
 
-.cnt2{
-    width: 20%;
-    perspective: 1000px;
-    height: 20%;
-}
 .card{
-transform-style: preserve-3d;
-position: relative;
-transition: transform 1s;
-}
-.card-front .card-back{
+    width: 100%;
+    height: 28vw;
     position: relative;
-    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
+    border-radius: 30px;
 }
-.card-front p{
-    position: relative;
-    z-index: 1;
-}
-.card:hover{
 
+.cnt:hover .card{
     transform: rotateY(180deg);
 }
+
+.card-face{
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+
+}
+
+.card-front img{
+    width: 100%;
+    height: 100%;
+    object-fit:fit;
+    filter: brightness(0.85);
+}
+
+.card-text{
+    position: absolute;
+    bottom: 2vw;
+    left: 2vw;
+    color: white;
+}
+
+.card-text h3{
+    font-size: 2vw;
+    margin-bottom: .4vw;
+}
+
+.card-text p{
+    font-size: 1vw;
+    opacity: .85;
+}
+
+.card-back{
+    background: linear-gradient(135deg,#111,#1a1a1a);
+    color: white;
+    transform: rotateY(180deg);
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-back h3{
+    font-size: 2.2vw;
+    margin-bottom: 1vw;
+}
+
+.card-back p{
+    font-size: 1.1vw;
+    line-height: 1.6;
+    opacity: .8;
+}
+
+.card-back a{
+    margin-top: 2vw;
+    font-size: 1vw;
+    text-decoration: none;
+    color: rgb(108, 216, 148);
+    letter-spacing: .1vw;
+}
+
 .education{
     margin-top: 8vw;
     position: relative;
@@ -481,7 +538,6 @@ transition: transform 1s;
     /* animation: an 4s linear infinite; */
     position: absolute;
 }
-
 /* animation{
  .elem img:nth-child(2){
     animation-delay: 1s;
@@ -521,26 +577,18 @@ transition: transform 1s;
 }
 } */
 
-
-
-/* When the first li is hovered, change the body's background */
 body:has(.skillslLeft ul li:nth-child(1):hover) {
     background-color: #ffb649;
   }
-  
-  /* When the second li is hovered, change the body's background */
   body:has(.skillslLeft ul li:nth-child(2):hover) {
     background-color: #5cecfc;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   }
-  
-  /* When the third li is hovered, change the body's background */
   body:has(.skillslLeft ul li:nth-child(3):hover) {
     background-color: #fde963;
 
   }
   
-  /* When the fourth li is hovered, change the body's background */
   body:has(.skillslLeft ul li:nth-child(4):hover) {
     background-color: #6adafc;
     background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
