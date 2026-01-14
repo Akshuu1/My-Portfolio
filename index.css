@@ -15,7 +15,7 @@ html,body{
     position: absolute;
 }
 .loader{
-    display: none;
+    /* display: none; */
     z-index: 1000;
     position: absolute;
     height: 100vh;
@@ -68,7 +68,7 @@ html,body{
     
 }
 .green{
-    display: none;
+    /* display: none; */
     width: 100%;
     z-index: 1000;
     height: 0;
@@ -608,6 +608,10 @@ background-image: linear-gradient(to top, #FF416C 0%, #FF4B2B 100%);
 }
   body:has(.skillslLeft ul li:nth-child(8):hover) {
     background-color: #fdd26e;
+  }
+  body:has(.skillslLeft ul li:nth-child(9):hover) {
+      background-color: #5cecfc;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   }
 footer{
     display: flex;
