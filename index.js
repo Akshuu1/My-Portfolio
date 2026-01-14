@@ -151,11 +151,17 @@ function cardHoverEffect() {
 
 
   document.getElementById("about").addEventListener("click", function (event) {
-    event.preventDefault(); // Stop the default jum
-  
-    const target = document.getElementById("about");
-    target.scrollIntoView({ behavior: "smooth" }); // Smooth scroll, just like our love 🥰
-  });
+  event.preventDefault(); // Stop default jump
+
+  const target = document.querySelector(".imagery"); // ← actual section
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+});
+
   
 revealtoSpan();
 valueSetters();
