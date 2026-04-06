@@ -9,6 +9,7 @@ html,body{
     background-color: #efeded;
     overflow-x: hidden;
     color: rgb(42, 40, 40);
+    transition: background-color 0.6s ease, background-image 0.6s ease;
 }
 .main{
     width: 100%;
@@ -77,9 +78,33 @@ html,body{
     bottom: 0;
     position: absolute;
 }
-.home{
+/* Grain Overlay */
+.bg-grain {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+}
+
+/* Home Background flair */
+.home {
+    background: radial-gradient(circle at 50% 50%, rgba(108, 216, 148, 0.05) 0%, transparent 70%);
     height: auto;
     width: 100%;
+}
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 100px 100px;
+    z-index: -1;
+    opacity: 0.5;
 }
 .nav{
     display: flex;
@@ -95,6 +120,11 @@ html,body{
     font-size: .85vw;
     color: black;
     position: relative;
+    transition: color 0.3s ease;
+    letter-spacing: 0.08em;
+}
+.nav a:hover {
+    color: rgb(108, 216, 148);
 }
 .line{
     position: absolute;
@@ -103,7 +133,7 @@ html,body{
     display: inline-block;
     width: 100%;
     height: 1px;
-    background-color: black;
+    background-color: currentColor;
 }
 .nav a:hover .line{
     width: 0%;
@@ -116,8 +146,6 @@ html,body{
     padding: 0 7vw;
     line-height: 1;
     align-items: center;
-
-
 }
 .row h1{
     font-size: 11vw;
@@ -158,17 +186,17 @@ path,polyline{
     margin-top: 15vw;
     width: 100%;
     padding: 5vw 7vw;
+    gap: 5vw; /* Added gap to prevent collision */
 }
-.imglef{
-    width: 30%;
+.imglef {
+    width: 40%;
     height: auto;
 }
-.imglef h1{
-    font-size:2.2vw;
+.imglef h1 {
+    font-size: 2.2vw;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 1.4;
-    color: #333;
 }
 .maz{
     font-family:'MAZIUS REVIEW 20.09 Regular';
@@ -176,13 +204,25 @@ path,polyline{
     font-weight: 400;
     color: rgb(108, 216, 148);
 }
+.contact-form-side {
+    flex: 0 0 50%;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vw 4.5vw;
+    animation: slideInRight 1s ease 0.2s both;
+}
 .imgrig{
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 60%;
+    width: 48%; /* Adjusting width to balance layout */
     height: auto;
+    margin-right: 10vw;
+    margin-bottom: 10vw;
 }
 .imgcntr{
     border-radius: 2vw;
@@ -190,26 +230,29 @@ path,polyline{
     width: 28vw;
     background-color: rebeccapurple;
     height: 42vw; 
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
-    filter: grayscale();   
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1.2s;
+    filter: grayscale(100%);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 .imgcntr:hover{
     filter: grayscale(0);
+    box-shadow: 0 30px 80px rgba(108,216,148,0.25);
+    z-index: 10;
 }
 .imgcntr:nth-child(1){
     background-image: url(Images/img1.jpeg);
     background-size: cover;
-    transform: translate(-35%,-15%) rotate(-19deg);
+    transform: translate(-18%,-15%) rotate(-15deg); /* Tighter spread on X */
 }
 .imgcntr:nth-child(2){
     background-image: url(Images/img3.jpeg);
     background-size: cover;
-    transform: translate(-15%,-2%) rotate(-15deg);}
+    transform: translate(0%,-5%) rotate(-8deg); z-index: 5; }
     
 .imgcntr:nth-child(3){
     background-image: url(Images/img2.jpeg);
     background-size: cover;
-    transform: translate(7%,11%) rotate(-7deg);
+    transform: translate(18%,10%) rotate(5deg); /* Tighter spread on X */
 }
 
 .work{
@@ -271,86 +314,178 @@ path,polyline{
     gap:3vw;
 }
 
-.cnt{
-    width: 100%;
-    perspective: 1200px;
-}
-
-.card{
-    width: 100%;
-    height: 28vw;
+/* ==============================
+   STACKED CARDS PARALLAX SECTION
+   ============================== */
+.projects-stack {
+    padding: 4vw 5vw 0;
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
-    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
 }
 
-.cnt:hover .card{
-    transform: rotateY(180deg);
-}
-
-.card-face{
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 30px;
+.p-card {
+    position: sticky;
+    top: 8vh;
+    height: 82vh;
+    border-radius: 32px;
+    background: #0e0e0e;
     overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
-
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    transform-origin: top center;
+    will-change: transform;
+    margin-bottom: 25vh;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; /* Restored flex */
 }
 
-.card-front img{
+/* Restored alternating layout */
+.p-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.p-card-img {
+    flex: 0 0 55%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.p-card-img img {
     width: 100%;
     height: 100%;
-    object-fit:fit;
-    filter: brightness(0.85);
+    object-fit: contain; /* Restored contain for full image visibility */
+    background: #000;
+    transition: transform 1.2s cubic-bezier(0.19,1,0.22,1);
+    filter: brightness(0.85); /* Restored brighter look */
+    display: block;
+    padding: 3vw; /* Add padding for editorial look with 'contain' */
 }
 
-.card-text{
-    position: absolute;
-    bottom: 2vw;
-    left: 2vw;
-    color: white;
+.p-card:hover .p-card-img img {
+    transform: scale(1.12);
+    filter: brightness(1);
 }
 
-.card-text h3{
-    font-size: 2vw;
-    margin-bottom: .4vw;
-}
-
-.card-text p{
-    font-size: 1vw;
-    opacity: .85;
-}
-
-.card-back{
-    background: linear-gradient(135deg,#111,#1a1a1a);
-    color: white;
-    transform: rotateY(180deg);
-    padding: 3vw;
+.p-card-info {
+    flex: 1;
+    padding: 4vw 5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 1.5vw;
+    color: #fff;
+    z-index: 2;
+    position: relative;
 }
 
-.card-back h3{
-    font-size: 2.2vw;
-    margin-bottom: 1vw;
+.p-card-info h3 {
+    font-size: 3vw;
+    margin-bottom: 0.5vw;
+    font-family: 'MAZIUS REVIEW 20.09 Regular', serif;
+    line-height: 1.1;
 }
 
-.card-back p{
+.p-card-info .tech-stack {
+    font-size: 0.8vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    margin-bottom: 1.5vw;
+    font-weight: 600;
+}
+
+.p-card-info .description {
     font-size: 1.1vw;
     line-height: 1.6;
-    opacity: .8;
+    opacity: 0.7;
+    margin-bottom: 2.5vw;
 }
 
-.card-back a{
-    margin-top: 2vw;
-    font-size: 1vw;
-    text-decoration: none;
-    color: rgb(108, 216, 148);
-    letter-spacing: .1vw;
+.p-num {
+    font-size: 0.75vw;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(108, 216, 148, 0.7);
+    font-weight: 700;
 }
+
+.p-card-info h3 {
+    font-size: 4.5vw;
+    font-family: 'MAZIUS REVIEW 20.09 Regular', serif;
+    font-style: italic;
+    color: #fff;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.tech-stack {
+    font-size: 0.8vw;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+}
+
+.description {
+    font-size: 1.1vw;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 90%;
+}
+
+.glass-btn {
+    margin-top: 0.8vw;
+    padding: 1vw 2.2vw;
+    width: fit-content;
+    background: rgba(108,216,148,0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(108,216,148,0.35);
+    border-radius: 50px;
+    color: rgb(108,216,148);
+    text-decoration: none;
+    font-size: 0.85vw;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-btn:hover {
+    background: rgb(108,216,148);
+    color: #000;
+    border-color: rgb(108,216,148);
+}
+
+.glass-btn i {
+    font-size: 1.1vw;
+}
+
+@media (max-width: 768px) {
+    .p-card {
+        flex-direction: column !important;
+        height: auto;
+        min-height: 85vw;
+        position: relative;
+        top: 0;
+    }
+    .p-card-img {
+        flex: 0 0 55vw;
+        width: 100%;
+    }
+    .p-card-info h3 { font-size: 9vw; }
+    .description { font-size: 3.5vw; }
+    .tech-stack { font-size: 2.5vw; }
+    .glass-btn { padding: 3vw 6vw; font-size: 3vw; }
+    .p-num { font-size: 2.5vw; }
+}
+
+
 
 .education{
     margin-top: 8vw;
@@ -400,9 +535,18 @@ path,polyline{
 }
 .educationRight ul li{
     list-style: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
     padding: 1vw 0;
     display: flex;
+    transition: border-color 0.3s ease;
+}
+.educationRight ul li:hover {
+    border-bottom-color: rgb(108,216,148);
+}
+.educationRight ul li:hover .scl p {
+    color: rgb(42,40,40);
+    padding-left: 3.5vw;
+    transition: padding 0.4s ease;
 }
 .educationRight ul{
     padding: 0;
@@ -431,6 +575,7 @@ path,polyline{
     width: 100%;
     position: relative;
     padding: 5vw 0;
+    overflow: visible;
 }
 
 .skills h1{
@@ -443,7 +588,7 @@ path,polyline{
     display: flex;
 }
 .skillslLeft{
-    width: 65%;
+    width: 100%;
     padding: 3vw 0;
 }
 .skillsRight{
@@ -462,28 +607,40 @@ path,polyline{
     position:relative;
 }
 .skillslLeft ul{
-    padding: 7vw 10vw;
+    padding: 2vw 10vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
 }
 .skillslLeft ul li{
-    text-align:center ;
-    line-height: 15vw;
+    line-height: normal;
     list-style: none;
     text-transform: uppercase;
-    font-size: 3vw;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
+    font-size: 1.8vw;
+    font-weight: 600;
+    padding: 1vw 2.5vw;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.skillslLeft ul li:hover {
+    transform: translateY(-10px) scale(1.07);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 40px rgba(108, 216, 148, 0.35);
+    border-color: rgba(108, 216, 148, 0.8);
+    color: rgb(108, 216, 148);
+    animation: none;
 }
 .skills{
     padding-bottom: 0;
 }
 .line1{
-    width: 100%;
-    height: 1px;
-    background-color: rgb(180, 175, 175);
-    margin-left: -.5vw;
-    margin-top: -7.6vw;
-    opacity: 50%;
+    display: none;
 }
 
 .skills::before{
@@ -509,6 +666,17 @@ path,polyline{
     transition: opacity 0.1s ease;
     opacity: 0;
     position: absolute;
+}
+.workrow{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background-color: #efeded;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    padding-bottom: 2vw;
 }
 .elem{
     width: 100%;
@@ -579,40 +747,53 @@ path,polyline{
 
 body:has(.skillslLeft ul li:nth-child(1):hover) {
     background-color: #ffb649;
-  }
-  body:has(.skillslLeft ul li:nth-child(2):hover) {
+    background-image: none;
+}
+body:has(.skillslLeft ul li:nth-child(2):hover) {
     background-color: #5cecfc;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  }
-  body:has(.skillslLeft ul li:nth-child(3):hover) {
+}
+body:has(.skillslLeft ul li:nth-child(3):hover) {
     background-color: #fde963;
-
-  }
-  
-  body:has(.skillslLeft ul li:nth-child(4):hover) {
+    background-image: none;
+}
+body:has(.skillslLeft ul li:nth-child(4):hover) {
     background-color: #6adafc;
     background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
 }
-  
- body:has(.skillslLeft ul li:nth-child(5):hover) {
+body:has(.skillslLeft ul li:nth-child(5):hover) {
     background-color: #6adafc;
     background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
 }
- body:has(.skillslLeft ul li:nth-child(6):hover) {
+body:has(.skillslLeft ul li:nth-child(6):hover) {
     background-color: #6adafc;
     background-image: linear-gradient(to right, #F7971E 0%, #FFD200 100%);
 }
- body:has(.skillslLeft ul li:nth-child(7):hover) {
+body:has(.skillslLeft ul li:nth-child(7):hover) {
     background-color: #6adafc;
-background-image: linear-gradient(to top, #FF416C 0%, #FF4B2B 100%);
+    background-image: linear-gradient(to top, #FF416C 0%, #FF4B2B 100%);
 }
-  body:has(.skillslLeft ul li:nth-child(8):hover) {
+body:has(.skillslLeft ul li:nth-child(8):hover) {
     background-color: #fdd26e;
-  }
-  body:has(.skillslLeft ul li:nth-child(9):hover) {
-      background-color: #5cecfc;
+    background-image: none;
+}
+body:has(.skillslLeft ul li:nth-child(9):hover) {
+    background-color: #5cecfc;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  }
+}
+body:has(.skillslLeft ul li:nth-child(10):hover) {
+    background-color: #11998e;
+    background-image: linear-gradient(to right, #11998e, #38ef7d);
+}
+body:has(.skillslLeft ul li:nth-child(11):hover) {
+    background-color: #e65c00;
+    background-image: linear-gradient(to right, #e65c00, #F9D423);
+}
+body:has(.skillslLeft ul li:nth-child(12):hover) {
+    background-color: #4facfe;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
 footer{
     display: flex;
     flex-direction: column;
@@ -791,40 +972,49 @@ footer{
 .happen{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 100vh;
     color: white;
     z-index: 10;
-    filter: blur(0px);
     position: relative;
-    top: 15%;
 }
 .connectBox{
     display: flex;
     flex-direction: column;
     height: auto; 
-    width: 50vw;
+    width: 40vw;
     box-sizing: border-box;
     border-radius: 2vw;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    padding: 4vw;
 }
 .connectBoxInput{
     display: flex;
     flex-direction: column;
-    gap: 4vw;
+    gap: 2.5vw;
     align-items: center;
+    width: 100%;
 }
 .connectBox input{
     color: white;
-    font-size: 1.3vw;
-    width: 60%;
+    font-size: 1vw;
+    width: 100%;
     border: none;
-    padding: 1vw;
-    background-color: inherit;
-    border-bottom: 2px solid black;
-    line-height:2;
+    padding: 1vw 1.5vw;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 .connectBox input:focus{
     outline: none;
-    outline: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(108, 216, 148, 0.8);
+    box-shadow: 0 0 15px rgba(108, 216, 148, 0.3);
 }
 
 .connectBox input::-webkit-outer-spin-button,
@@ -834,23 +1024,31 @@ footer{
 }
 
 .connectBox input::placeholder{
-    font-size: 1.3vw;
-    padding: 1vw;
-    color: white;
+    font-size: 1vw;
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-
 }
 .connectBoxInput button{
-    background: none;
+    background: linear-gradient(45deg, rgb(108, 216, 148), rgb(50, 150, 100));
     border: none;
-    font-size: 1vw;
-    border: 1px solid black;
-    padding: 1vw 2vw;
-    border-radius: 5vw;
+    font-size: 1.2vw;
+    padding: 1vw 3vw;
+    border-radius: 50px;
     color: white;
-    font-weight: 300;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(108, 216, 148, 0.3);
+    margin-top: 1vw;
+}
+.connectBoxInput button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(108, 216, 148, 0.5);
+    background: linear-gradient(45deg, rgb(120, 230, 160), rgb(60, 170, 120));
 }
 .bbbb{
     display: flex;
@@ -866,6 +1064,7 @@ footer{
 }
 .bbbb h3{
     font-weight: 300;
-    letter-spacing: 1px;
-    font-size: 1vw;
+    letter-spacing: 2px;
+    font-size: 1.2vw;
+    color: rgba(255, 255, 255, 0.7);
 }

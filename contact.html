@@ -3,48 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect With Me</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Connect With Me | Akshat Agrawal</title>
+    <link rel="stylesheet" href="index.css?v=2">
     <link rel="stylesheet" href="https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 
     <style>
-        *{
-            margin: 0;
-            padding: 0;
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Gilroy',sans-serif; }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
         }
-        .aaa{
+
+        .bg-blur {
             background-image: url("Images/ss.png");
             background-size: cover;
             background-position: center;
+            width: 100%; height: 100%;
+            filter: blur(60px) brightness(0.2) saturate(0.5);
+            position: absolute; z-index: -1;
+        }
+
+        /* ── Split Layout ── */
+        .split-contact {
+            display: flex;
             width: 100%;
-            height: 100%;
-            filter: blur(15px);
-            position: absolute;
+            height: 100vh;
+        }
+
+        /* ── LEFT ── */
+        .contact-hero {
+            width: 50%;
+            padding: 5vw 8vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3.5vw;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            animation: slideInLeft 1s ease forwards;
+            box-sizing: border-box;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity:0; transform: translateX(-40px); }
+            to   { opacity:1; transform: translateX(0); }
+        }
+
+        .contact-hero h1 {
+            font-size: 7.5vw;
+            line-height: 0.9;
+            font-family: 'MAZIUS REVIEW 20.09 Regular', serif;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .contact-hero h1 span { color: rgb(108, 216, 148); }
+
+        .hero-sub {
+            font-size: 1vw;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2vw;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1vw;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, gap 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 0.8vw;
+        }
+
+        .social-links a i { font-size: 1.3vw; }
+
+        .social-links a:hover {
+            opacity: 1;
+            gap: 1.8vw;
+            color: rgb(108, 216, 148);
+        }
+
+        /* ── RIGHT ── */
+        .contact-form-side {
+            width: 50%;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(30px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4vw 6vw;
+            animation: slideInRight 1s ease 0.2s both;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        @keyframes slideInRight {
+            from { opacity:0; transform: translateX(40px); }
+            to   { opacity:1; transform: translateX(0); }
+        }
+
+        .form-wrapper {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .form-wrapper h2 {
+            font-size: 0.8vw;
+            margin-bottom: 3vw;
+            letter-spacing: 4px;
+            opacity: 0.4;
+            text-transform: uppercase;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5vw;
+        }
+
+        .input-group { position: relative; }
+
+        input, textarea {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding: 1vw 0;
+            color: #fff;
+            font-size: 1.1vw;
+            font-family: 'Gilroy', sans-serif;
+            transition: border-color 0.4s ease;
+            resize: none;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom-color: rgb(108, 216, 148);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+            font-size: 0.8vw;
+            letter-spacing: 2px;
+            font-family: 'Gilroy', sans-serif;
+        }
+
+        textarea { min-height: 80px; }
+
+        button {
+            margin-top: 1vw;
+            padding: 1.3vw 0;
+            width: 100%;
+            background: rgb(108, 216, 148);
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.85vw;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover { background: #fff; transform: scaleX(1.02); }
+
+        .back-link {
+            position: fixed;
+            top: 2vw; left: 2vw;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.75vw;
+            display: flex;
+            align-items: center;
+            gap: 0.5vw;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 100;
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        @media (max-width: 1024px) {
+            .split-contact { flex-direction: column; height: auto; overflow: auto; }
+            body { height: auto; overflow: auto; }
+            .contact-hero, .contact-form-side { width: 100%; flex: none; padding: 10vw 8vw; }
+            .contact-hero { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .contact-hero h1 { font-size: 13vw; }
+            input, button, textarea, .form-wrapper h2 { font-size: 4vw; }
+            input::placeholder, textarea::placeholder { font-size: 3vw; }
+            .social-links a { font-size: 3.5vw; }
+            .hero-sub { font-size: 3vw; }
         }
     </style>
 
 </head>
-
 <body>
-    <div class="aaa"></div>
-    <div class="bbbb">
-    <div class="happen">
-        <div class="connectBox">
-            <form>
-            <div class="connectBoxInput">
-                <input type="text" placeholder="Your Name">
-                <input type="number" placeholder="Mobile" type="">
-                <input type="email" placeholder="Email">
-                <button>LET'S GO</button>
+    <div class="bg-blur"></div>
+    
+    <a href="index.html" class="back-link">
+        <i class="ri-arrow-left-line"></i> BACK TO HOME
+    </a>
+
+    <div class="split-contact">
+        <div class="contact-hero">
+            <h1>LET'S BUILD <br><span>SOMETHING</span> <br>EXTRAORDINARY</h1>
+            <p class="hero-sub">Available for freelance &amp; full-time</p>
+            <div class="social-links">
+                <a href="https://github.com/Akshuu1"><i class="ri-github-fill"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/akshat-agrawal-955347316/"><i class="ri-linkedin-box-fill"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/akshat_agrawal.14/"><i class="ri-instagram-line"></i> Instagram</a>
             </div>
-            </form>
         </div>
 
+        <div class="contact-form-side">
+            <div class="form-wrapper">
+                <h2>Drop a message</h2>
+                <form>
+                    <div class="input-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Project Subject">
+                    </div>
+                    <div class="input-group">
+                        <textarea placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit">SUBMIT REQUEST</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <h3>| CONNECT WITH ME |</h3>
-</div>
-
-
-
 </body>
 </html>

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="index.css" rel="stylesheet">
+    <link href="index.css?v=2" rel="stylesheet">
     <link rel="stylesheet" href="https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css">
     <link href="https://db.onlinewebfonts.com/c/7e5d4b5e37c0623759cbed868eb8c2ba?family=MAZIUS+REVIEW+20.09+Regular" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
+<div class="bg-grain"></div>
 <div class="nav">
     <a href="#home">Akshat
         <span class="line"></span>
@@ -62,7 +63,7 @@
         </div>
         <div class="imagery" id="about">
             <div class="imglef">
-                <h1>I'm <span class="maz">Akshat Agrawal</span>, passionate about coding, creativity, and AI. I am specialized in <b>HTML, CSS, JavaScript, React js, Node.js, Express JS, MongoDb, MySQL, Python, Tailwind CSS </b>, love building innovative projects. My goal is to create engaging web experiences that seamlessly blend technology with creativity.</h1>
+                <h1>I'm <span class="maz">Akshat Agrawal</span>, a Creative Developer specializing in the MERN stack and AI integrations. I transform complex datasets into interactive, high-fidelity interfaces that bridge technical excellence with artistic intuition.</h1>
             </div>
             <div class="imgrig">
                 <div class="imgcntr"></div>
@@ -83,55 +84,61 @@
         </svg>
     </div>
 
-    <div class="images">
-        <div class="cnt">
-            <div class="card">
+    <div class="projects-stack">
 
-                <div class="card-face card-front">
-                    <img src="Images/img7.png" alt="Stylee">
-                    <div class="card-text">
-                        <h3>Stylee</h3>
-                        <p>React, Node.js, Express js, MongoDB, Tailwind CSS</p>
-                    </div>
-                </div>
-
-                <div class="card-face card-back">
-                    <h3>Stylee</h3>
-                    <p>
-                        Stylee is a modern fashion-focused web experience crafted with clean UI, smooth interactions, and attention to detail. 
-The project emphasizes visual storytelling, responsive layouts, and a refined user journey that blends creativity with functionality.
-                    </p>
-                    <a href="https://stylee-gamma.vercel.app/">View Project →</a>
-                </div>
-
+        <div class="p-card" data-index="0">
+            <div class="p-card-img">
+                <img src="Images/img7.png" alt="Stylee">
+            </div>
+            <div class="p-card-info">
+                <span class="p-num">01</span>
+                <h3>Stylee</h3>
+                <p class="tech-stack">React · Node.js · MongoDB · Tailwind</p>
+                <p class="description">A modern fashion-focused web experience crafted with clean UI, smooth interactions, and attention to detail. Emphasizes visual storytelling and a refined user journey.</p>
+                <a href="https://stylee-gamma.vercel.app/" target="_blank" class="glass-btn">View Project <i class="ri-arrow-right-up-line"></i></a>
             </div>
         </div>
-        <div class="cnt">
-            <div class="card">
 
-                <div class="card-face card-front">
-                    <img src="Images/margify.png" alt="Margify">
-                    <div class="card-text">
-                        <h3>Margify</h3>
-                        <p>React, Node.js, Express js, MongoDB, Tailwind CSS</p>
-                    </div>
-                </div>
+        <div class="p-card" data-index="1">
+            <div class="p-card-img">
+                <img src="Images/margify.png" alt="Margify">
+            </div>
+            <div class="p-card-info">
+                <span class="p-num">02</span>
+                <h3>Margify</h3>
+                <p class="tech-stack">React · Express.js · MongoDB · Tailwind · APIs</p>
+                <p class="description">A data-driven platform designed to simplify insights through elegant design and intuitive workflows. Built with scalability and clarity at its core.</p>
+                <a href="https://margify-ten.vercel.app/" target="_blank" class="glass-btn">View Project <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+        </div>
 
-                <div class="card-face card-back">
-                    <h3>Margify</h3>
-                    <p>
-                       Margify is a data-driven platform designed to simplify insights through elegant design and intuitive workflows. 
-Built with scalability in mind, it focuses on performance, clarity, and seamless interaction across devices.
-                    </p>
-                    <a href="https://margify-ten.vercel.app/">View Project →</a>
-                </div>
+        <div class="p-card" data-index="2">
+            <div class="p-card-img">
+                <img src="Images/event.png" alt="Evently">
+            </div>
+            <div class="p-card-info">
+                <span class="p-num">03</span>
+                <h3>Epic Events</h3>
+                <p class="tech-stack">React · EmailJS</p>
+                <p class="description">A comprehensive event management platform that simplifies ticketing, attendee tracking, and seamless payments. Crafted for high-performance interactions.</p>
+                <a href="#" target="_blank" class="glass-btn">View Project <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+        </div>
 
+        <div class="p-card" data-index="3">
+            <div class="p-card-img">
+                <img src="Images/data.png" alt="DataWise">
+            </div>
+            <div class="p-card-info">
+                <span class="p-num">04</span>
+                <h3>DataWise</h3>
+                <p class="tech-stack">Excel · Tableau · Looker Studio</p>
+                <p class="description">Transforms complex datasets into stunning interactive visualizations. Built for fast-paced environments with clarity, real-time updates, and editorial-first design.</p>
+                <a href="#" target="_blank" class="glass-btn">View Project <i class="ri-arrow-right-up-line"></i></a>
             </div>
         </div>
 
     </div>
-
-</div>
 
         </div> 
     <div class="education">
@@ -175,56 +182,20 @@ Built with scalability in mind, it focuses on performance, clarity, and seamless
         <div class="skill">
             <div class="skillslLeft">
     <ul>
-        <li class="mastery" data-index="0">
-            <div class="lang">html</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="1">
-            <div class="lang">css</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="2">
-            <div class="lang">javascript</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="3">
-            <div class="lang">react js</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="4">
-            <div class="lang">node js</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="5">
-            <div class="lang">express js</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="6">
-            <div class="lang">Mongo db</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="7">
-            <div class="lang">Python</div>
-            <div class="line1"></div>
-        </li>
-
-        <li class="mastery" data-index="8">
-            <div class="lang">mysql</div>
-            <div class="line1"></div>
-        </li>
+        <li class="mastery" data-index="0" style="--i:0"><div class="lang">html</div></li>
+        <li class="mastery" data-index="1" style="--i:1"><div class="lang">css</div></li>
+        <li class="mastery" data-index="2" style="--i:2"><div class="lang">javascript</div></li>
+        <li class="mastery" data-index="3" style="--i:3"><div class="lang">react js</div></li>
+        <li class="mastery" data-index="4" style="--i:4"><div class="lang">node js</div></li>
+        <li class="mastery" data-index="5" style="--i:5"><div class="lang">express js</div></li>
+        <li class="mastery" data-index="6" style="--i:6"><div class="lang">Mongo db</div></li>
+        <li class="mastery" data-index="7" style="--i:7"><div class="lang">Python</div></li>
+        <li class="mastery" data-index="8" style="--i:8"><div class="lang">mysql</div></li>
+        <li class="mastery" data-index="9" style="--i:9"><div class="lang">Excel</div></li>
+        <li class="mastery" data-index="10" style="--i:10"><div class="lang">Tableau</div></li>
+        <li class="mastery" data-index="11" style="--i:11"><div class="lang">Looker Studio</div></li>
     </ul>
 </div>
-
-            <div class="skillsRight">
-                <img src="Images/img6.jpeg" alt="">
-            </div>
         </div>
         
     </div>
@@ -293,28 +264,32 @@ Built with scalability in mind, it focuses on performance, clarity, and seamless
             <img src="Images/MongoDB.png" alt="MongoDB" data-index="6">
             <img src="Images/Python.png" alt="PYTHON" data-index="7">
             <img src="Images/MySQL.png" alt="MySQL" data-index="8">
+            <img src="Images/excel.png" alt="Excel" data-index="9">
+            <img src="Images/tableau.png" alt="Tableau" data-index="10">
+            <img src="Images/looker.png" alt="Looker Studio" data-index="11">
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/bundled/lenis.min.js"></script>
-
-<script>
-  const lenis = new Lenis({
-    duration: 2,
-    easing: t* (4-t),
-    smooth: true,
-  })
-
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-
-  requestAnimationFrame(raf)
-</script>
-
+    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="index.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis smooth scroll (must load before index.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/bundled/lenis.min.js"></script>
+    <script>
+      const lenis = new Lenis({
+        duration: 1.8,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+
+    <script src="index.js"></script>
 </body>
 </html>
